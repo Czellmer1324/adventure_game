@@ -7,7 +7,12 @@ public abstract class Enemy {
     private boolean dead = false;
     private String name;
 
-    public Enemy(String name) {}
+    public Enemy(String name, int health, int attackDmg, EnemyType type) {
+        this.name = name;
+        this.health = health;
+        this.attackDmg = attackDmg;
+        this.type = type;
+    }
 
     public int attack() {
         return attackDmg;
