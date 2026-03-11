@@ -5,6 +5,5 @@ package com.czellmer1324;
 public class Main {
     static void main() {
 
-        }
     }
 }
