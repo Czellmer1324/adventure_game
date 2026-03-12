@@ -1,5 +1,7 @@
 package com.czellmer1324.Entities.Enemy;
 
+import com.czellmer1324.Records.DamageResult;
+
 public abstract class Enemy {
     private EnemyType type;
     private int health;
@@ -18,10 +20,10 @@ public abstract class Enemy {
         return attackDmg;
     }
 
-    public boolean takeDmg(int dmg) {
+    public DamageResult takeDmg(int dmg) {
         health -= dmg;
         if (health <= 0) dead = true;
-        return dead;
+        return new DamageResult(dead, health);
     }
 
     public EnemyType getType() {
