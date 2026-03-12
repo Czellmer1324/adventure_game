@@ -4,8 +4,10 @@ import com.czellmer1324.Entities.Item.Item;
 import com.czellmer1324.Entities.Item.ItemType;
 import com.czellmer1324.Entities.Item.Items.Armor.Armor;
 import com.czellmer1324.Entities.Item.Items.Armor.ArmorType;
+import com.czellmer1324.Entities.Item.Items.Potion.Potion;
 import com.czellmer1324.Entities.Item.Items.Weapon.Weapon;
 import com.czellmer1324.Records.DamageResult;
+import com.czellmer1324.Records.PotionResult;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -121,6 +123,37 @@ public class Player {
         }
 
         curWeapon = weapon;
+        weaponInvent.remove(weapon);
         attack += weapon.getDmgIncrease();
     }
+
+    public PotionResult usePotion(int index) {
+        LinkedList<Item> potionInvent = inventory.get(potionInventIndex);
+        Potion potion = (Potion) potionInvent.get(index);
+
+        PotionResult result = usePotion(potion);
+        if (result.used()) {
+            potionInvent.remove(potion);
+        }
+
+        return result;
+    }
+
+    private PotionResult usePotion(Potion potion) {
+        int healAmount = potion.getHealthPoints();
+        int availableToHeal = maxHealth - health;
+
+        if (availableToHeal == 0) {
+            return new PotionResult(health, false);
+        } else if (healAmount >= availableToHeal) {
+            health = maxHealth;
+            return new PotionResult(health, true);
+        } else {
+            health += healAmount;
+            return new PotionResult(health, true);
+        }
+    }
+
+    //TODO: Add method that returns record of all of current player info
+    // Returns health, current armor, current weapon, and current attack
 }
