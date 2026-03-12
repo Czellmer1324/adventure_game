@@ -4,6 +4,7 @@ import com.czellmer1324.Entities.Item.Item;
 import com.czellmer1324.Entities.Item.ItemType;
 import com.czellmer1324.Entities.Item.Items.Armor.Armor;
 import com.czellmer1324.Entities.Item.Items.Armor.ArmorType;
+import com.czellmer1324.Entities.Item.Items.Weapon.Weapon;
 import com.czellmer1324.Records.DamageResult;
 
 import java.util.ArrayList;
@@ -14,11 +15,12 @@ public class Player {
     private int maxHealth = 40;
     private int health = 40;
     private int attack = 10;
-    private ArrayList<LinkedList<Item>> inventory = new ArrayList<>();
+    private final ArrayList<LinkedList<Item>> inventory = new ArrayList<>();
     private final int armorInventIndex = 0;
     private final int potionInventIndex = 1;
     private final int weaponInventIndex = 2;
-    private Armor[] armors = new Armor[4];
+    private final Armor[] armors = new Armor[4];
+    private Weapon curWeapon = null;
     private boolean isDead = false;
 
     public Player(String name) {
@@ -107,5 +109,18 @@ public class Player {
                 armorInvent.remove(index);
             }
         }
+    }
+
+    public void applyWeapon(int index) {
+        LinkedList<Item> weaponInvent = inventory.get(weaponInventIndex);
+        Weapon weapon = (Weapon) weaponInvent.get(index);
+
+        if (curWeapon != null) {
+            attack -= curWeapon.getDmgIncrease();
+            weaponInvent.add(curWeapon);
+        }
+
+        curWeapon = weapon;
+        attack += weapon.getDmgIncrease();
     }
 }
