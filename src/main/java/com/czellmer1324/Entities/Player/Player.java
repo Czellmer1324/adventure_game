@@ -158,8 +158,17 @@ public class Player {
     public PlayerInfo getCurrentStats() {
         return new PlayerInfo(health, attack, armors, curWeapon);
     }
-
-    //TODO: Add method to drop items from inventory.
+    
+    public void dropItem(Item item) {
+        ItemType type = item.getType();
+        if (type.equals(ItemType.ARMOR)) {
+            inventory.get(armorInventIndex).remove(item);
+        } else if (type.equals(ItemType.WEAPON)) {
+            inventory.get(weaponInventIndex).remove(item);
+        } else {
+            inventory.get(potionInventIndex).remove(item);
+        }
+    }
 
     //TODO: Add method to add item from inventory.
 }
