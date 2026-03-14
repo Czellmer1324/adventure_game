@@ -158,7 +158,7 @@ public class Player {
     public PlayerInfo getCurrentStats() {
         return new PlayerInfo(health, attack, armors, curWeapon);
     }
-    
+
     public void dropItem(Item item) {
         ItemType type = item.getType();
         if (type.equals(ItemType.ARMOR)) {
@@ -171,4 +171,14 @@ public class Player {
     }
 
     //TODO: Add method to add item from inventory.
+    public void pickUpItem(Item item) {
+        ItemType type = item.getType();
+        if (type.equals(ItemType.ARMOR)) {
+            inventory.get(armorInventIndex).add(item);
+        } else if (type.equals(ItemType.WEAPON)) {
+            inventory.get(weaponInventIndex).add(item);
+        } else {
+            inventory.get(potionInventIndex).add(item);
+        }
+    }
 }
