@@ -158,4 +158,8 @@ public class Player {
     public PlayerInfo getCurrentStats() {
         return new PlayerInfo(health, attack, armors, curWeapon);
     }
+
+    //TODO: Add method to drop items from inventory.
+
+    //TODO: Add method to add item from inventory.
 }
