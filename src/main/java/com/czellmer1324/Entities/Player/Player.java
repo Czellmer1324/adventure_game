@@ -170,7 +170,6 @@ public class Player {
         }
     }
 
-    //TODO: Add method to add item from inventory.
     public void pickUpItem(Item item) {
         ItemType type = item.getType();
         if (type.equals(ItemType.ARMOR)) {
