@@ -7,6 +7,7 @@ import com.czellmer1324.Entities.Item.Items.Armor.ArmorType;
 import com.czellmer1324.Entities.Item.Items.Potion.Potion;
 import com.czellmer1324.Entities.Item.Items.Weapon.Weapon;
 import com.czellmer1324.Records.DamageResult;
+import com.czellmer1324.Records.PlayerInfo;
 import com.czellmer1324.Records.PotionResult;
 
 import java.util.ArrayList;
@@ -154,6 +155,7 @@ public class Player {
         }
     }
 
-    //TODO: Add method that returns record of all of current player info
-    // Returns health, current armor, current weapon, and current attack
+    public PlayerInfo getCurrentStats() {
+        return new PlayerInfo(health, attack, armors, curWeapon);
+    }
 }
