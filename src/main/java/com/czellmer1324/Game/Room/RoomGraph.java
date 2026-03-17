@@ -1,4 +1,4 @@
-package com.czellmer1324.Room;
+package com.czellmer1324.Game.Room;
 
 import java.util.ArrayList;
 import java.util.HashMap;

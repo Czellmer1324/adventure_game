@@ -1,4 +1,4 @@
-package com.czellmer1324.Room;
+package com.czellmer1324.Game.Room;
 
 import com.czellmer1324.Entities.Enemy.Enemy;
 import com.czellmer1324.Entities.Item.Item;

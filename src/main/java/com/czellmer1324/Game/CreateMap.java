@@ -8,8 +8,8 @@ import com.czellmer1324.Entities.Item.Item;
 import com.czellmer1324.Entities.Item.Items.Armor.Armor;
 import com.czellmer1324.Entities.Item.Items.Armor.ArmorType;
 import com.czellmer1324.Entities.Item.Items.Potion.Potion;
-import com.czellmer1324.Room.Room;
-import com.czellmer1324.Room.RoomGraph;
+import com.czellmer1324.Game.Room.Room;
+import com.czellmer1324.Game.Room.RoomGraph;
 
 import java.util.ArrayList;
 

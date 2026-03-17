@@ -1,8 +1,8 @@
 package com.czellmer1324.Game;
 
 import com.czellmer1324.Entities.Player.Player;
-import com.czellmer1324.Room.Room;
-import com.czellmer1324.Room.RoomGraph;
+import com.czellmer1324.Game.Room.Room;
+import com.czellmer1324.Game.Room.RoomGraph;
 
 import java.util.ArrayList;
 
