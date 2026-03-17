@@ -8,6 +8,7 @@ import com.czellmer1324.Entities.Item.Item;
 import com.czellmer1324.Entities.Item.Items.Armor.Armor;
 import com.czellmer1324.Entities.Item.Items.Armor.ArmorType;
 import com.czellmer1324.Entities.Item.Items.Potion.Potion;
+import com.czellmer1324.Entities.Item.Items.Weapon.Weapon;
 import com.czellmer1324.Game.Room.Room;
 import com.czellmer1324.Game.Room.RoomGraph;
 
@@ -17,7 +18,7 @@ public class CreateMap {
     public RoomGraph createMap() {
         RoomGraph map = new RoomGraph();
         Room room1 = new Room("Beginning room", true, false, createItemsHelmet(), createEnemiesOne());
-        Room room2 = new Room("Room of pain", false, false, new ArrayList<>(), createEnemiesOne());
+        Room room2 = new Room("Room of pain", false, false, createItemWeapon(), createEnemiesOne());
         Room room3 = new Room("Room of suffering", false, false, createItemsChestPlate(), createEnemiesTwo());
         Room room4 = new Room("Room of radiance", false, false, createItemsBoots(), createEnemiesOne());
         Room room5 = new Room("Room of defiance", false, false, createItemsLeggings(), createEnemiesTwo());
@@ -99,6 +100,13 @@ public class CreateMap {
     private ArrayList<Item> createItemPotions() {
         ArrayList<Item> items = new ArrayList<>();
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
+        items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
+        return items;
+    }
+
+    private ArrayList<Item> createItemWeapon() {
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(new Weapon("Axe of hacking", "Hack through your enemies with ease", 5));
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
         return items;
     }
