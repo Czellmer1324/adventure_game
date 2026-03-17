@@ -37,4 +37,15 @@ class GameUtils {
             return new ChoiceValidation(0, false);
         }
     }
+
+    protected ChoiceValidation validateOption(String s, int low, int high) {
+        int choice;
+        try {
+            choice = Integer.parseInt(s);
+            if (choice >= low && choice <= high) return new ChoiceValidation(choice, true);
+            else return new ChoiceValidation(0, false);
+        } catch (NumberFormatException e) {
+            return new ChoiceValidation(0, false);
+        }
+    }
 }

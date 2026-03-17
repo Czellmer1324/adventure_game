@@ -53,7 +53,7 @@ public class Room {
     }
 
     public Item pickupItem(int index) {
-        return items.get(index);
+        return items.remove(index);
     }
 
     public void dropItem(Item item) {

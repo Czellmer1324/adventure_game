@@ -1,9 +1,11 @@
 package com.czellmer1324.Game;
 
+import com.czellmer1324.Entities.Item.Item;
 import com.czellmer1324.Entities.Player.Player;
 import com.czellmer1324.Game.Room.Room;
 import com.czellmer1324.Records.ChoiceValidation;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameManager {
@@ -45,7 +47,38 @@ public class GameManager {
 
     private void chooseOption(int choice) {
         switch (choice) {
-            
+            case 1 -> viewItemsRoom();
         }
+    }
+
+    private void viewItemsRoom() {
+        ArrayList<Item> curItems = curRoom.getItems();
+        if (curItems.isEmpty()) {
+            IO.println("\nThere are no items available in the room.");
+        } else {
+            IO.println("\nItems available: ");
+            for (int i = 0; i < curItems.size(); i++) {
+                IO.println(String.format("%d: %s", i + 1, curItems.get(i).getName()));
+            }
+
+            IO.print("Would you like to pick up an item? (Yes/No): ");
+            String pickUp = sc.nextLine().toLowerCase();
+            if (pickUp.equals("yes")) {
+                IO.print("Enter the number of the item you would like to pick up: ");
+                ChoiceValidation valid = utils.validateOption(sc.nextLine(), 1, curItems.size());
+                while (!valid.valid()) {
+                    IO.print("Please enter a valid choice: ");
+                    valid = utils.validateOption(sc.nextLine(), 1, curItems.size());
+                }
+
+                pickUpItem(valid.choice() - 1);
+            }
+        }
+    }
+
+    private void pickUpItem(int selection) {
+        Item item = curRoom.pickupItem(selection);
+        player.pickUpItem(item);
+        IO.println(item.getName() + " has been added to your inventory");
     }
 }
