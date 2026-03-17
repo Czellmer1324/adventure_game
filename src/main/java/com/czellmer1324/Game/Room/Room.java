@@ -13,7 +13,6 @@ public class Room {
     private final ArrayList<Item> items;
     private final ArrayList<Enemy> enemies;
     private Boolean allEnemiesDefeated = false;
-    private final ArrayList<Room> adjoiningRooms = new ArrayList<>();
 
     public Room(String roomName, boolean startingRoom, boolean endingRoom, ArrayList<Item> items, ArrayList<Enemy> enemies) {
         this.roomName = roomName; this.startingRoom = startingRoom; this.endingRoom = endingRoom; this.items = items;
@@ -61,11 +60,11 @@ public class Room {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Room room = (Room) o;
-        return Objects.equals(roomName, room.roomName) && Objects.equals(startingRoom, room.startingRoom) && Objects.equals(endingRoom, room.endingRoom) && Objects.equals(items, room.items) && Objects.equals(enemies, room.enemies) && Objects.equals(allEnemiesDefeated, room.allEnemiesDefeated) && Objects.equals(adjoiningRooms, room.adjoiningRooms);
+        return Objects.equals(roomName, room.roomName) && Objects.equals(startingRoom, room.startingRoom) && Objects.equals(endingRoom, room.endingRoom) && Objects.equals(items, room.items) && Objects.equals(enemies, room.enemies) && Objects.equals(allEnemiesDefeated, room.allEnemiesDefeated);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(roomName, startingRoom, endingRoom, items, enemies, allEnemiesDefeated, adjoiningRooms);
+        return Objects.hash(roomName, startingRoom, endingRoom, items, enemies, allEnemiesDefeated);
     }
 }
