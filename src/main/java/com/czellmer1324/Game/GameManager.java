@@ -48,6 +48,7 @@ public class GameManager {
     private void chooseOption(int choice) {
         switch (choice) {
             case 1 -> viewItemsRoom();
+            case 2-> enemiesLeft();
         }
     }
 
@@ -80,5 +81,9 @@ public class GameManager {
         Item item = curRoom.pickupItem(selection);
         player.pickUpItem(item);
         IO.println(item.getName() + " has been added to your inventory");
+    }
+
+    private void enemiesLeft() {
+        IO.println("\n There are currently " + curRoom.getNumEnemies() + " enemies left in the room.");
     }
 }

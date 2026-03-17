@@ -19,8 +19,12 @@ public class Room {
         this.enemies = enemies;
     }
 
-    public ArrayList<Enemy> getEnemies() {
-        return enemies;
+    public int getNumEnemies() {
+        return enemies.size();
+    }
+
+    public Enemy getNextEnemy() {
+        return enemies.getFirst();
     }
 
     public String getRoomName() {
