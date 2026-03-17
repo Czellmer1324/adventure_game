@@ -12,6 +12,7 @@ public class Main {
         IO.println("Welcome to my text based adventure game! Let's get started!");
         IO.print("Please enter what you would like to be called for this game: ");
         String name = sc.nextLine();
-        GameManager manager = new GameManager(name);
+        GameManager manager = new GameManager(name, sc);
+        manager.startGame();
     }
 }

@@ -23,6 +23,10 @@ public class Room {
         return enemies;
     }
 
+    public String getRoomName() {
+        return roomName;
+    }
+
     public boolean anyEnemies() {
         return allEnemiesDefeated;
     }
