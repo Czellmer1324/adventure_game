@@ -5,6 +5,7 @@ import com.czellmer1324.Entities.Item.ItemType;
 import com.czellmer1324.Entities.Player.Player;
 import com.czellmer1324.Game.Room.Room;
 import com.czellmer1324.Records.ChoiceValidation;
+import com.czellmer1324.Records.PlayerInfo;
 import com.czellmer1324.Records.PotionResult;
 
 import java.util.ArrayList;
@@ -100,7 +101,18 @@ public class GameManager {
     }
 
     private void viewStats() {
-
+        IO.println(player.getName() + "'s current stats: ");
+        PlayerInfo info = player.getCurrentStats();
+        IO.println("Current Health: " + info.health());
+        IO.println("Max Health: " + info.maxHealth());
+        IO.println("Current attack: " + info.attack());
+        IO.println("Helmet: " + ((info.armor()[0] != null) ? info.armor()[0].getName() : "No helmet"));
+        IO.println("Chestplate: " + ((info.armor()[1] != null) ? info.armor()[1].getName() : "No chestplate"));
+        IO.println("Leggings: " + ((info.armor()[2] != null) ? info.armor()[2].getName() : "No leggings"));
+        IO.println("Boots: " + ((info.armor()[3] != null) ? info.armor()[3].getName() : "No boots"));
+        IO.println("Weapon:" + ((info.weapon() != null) ? info.weapon().getName() : "No weapon"));
+        IO.print("Press enter to continue");
+        sc.nextLine();
     }
 
     private void viewInventory() {

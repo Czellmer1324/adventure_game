@@ -156,7 +156,7 @@ public class Player {
     }
 
     public PlayerInfo getCurrentStats() {
-        return new PlayerInfo(health, attack, armors, curWeapon);
+        return new PlayerInfo(health, maxHealth, attack, armors, curWeapon);
     }
 
     public void dropItem(Item item) {
