@@ -48,4 +48,12 @@ class GameUtils {
             return new ChoiceValidation(0, false);
         }
     }
+
+    protected void printCombatOptions() {
+        IO.println("\nWhat would you like to do?");
+        IO.println("1: Attack the enemy");
+        IO.println("2: Use a potion");
+        IO.println("3: Leave combat");
+        IO.print("Your choice: ");
+    }
 }

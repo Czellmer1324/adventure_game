@@ -33,7 +33,7 @@ public class Room {
         return roomName;
     }
 
-    public boolean anyEnemies() {
+    public boolean enemiesDefeated() {
         return allEnemiesDefeated;
     }
 

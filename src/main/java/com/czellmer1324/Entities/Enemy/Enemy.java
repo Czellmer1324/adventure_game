@@ -3,11 +3,11 @@ package com.czellmer1324.Entities.Enemy;
 import com.czellmer1324.Records.DamageResult;
 
 public abstract class Enemy {
-    private EnemyType type;
+    private final EnemyType type;
     private int health;
-    private int attackDmg;
+    private final int attackDmg;
     private boolean dead = false;
-    private String name;
+    private final String name;
 
     public Enemy(String name, int health, int attackDmg, EnemyType type) {
         this.name = name;
@@ -24,6 +24,18 @@ public abstract class Enemy {
         health -= dmg;
         if (health <= 0) dead = true;
         return new DamageResult(dead, health);
+    }
+
+    public boolean isDead() {
+        return dead;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public EnemyType getType() {
