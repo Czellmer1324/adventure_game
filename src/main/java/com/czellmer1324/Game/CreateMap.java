@@ -13,6 +13,7 @@ import com.czellmer1324.Game.Room.Room;
 import com.czellmer1324.Game.Room.RoomGraph;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class CreateMap {
     public RoomGraph createMap() {
@@ -41,16 +42,16 @@ public class CreateMap {
         return map;
     }
 
-    private ArrayList<Enemy> createEnemiesOne() {
-        ArrayList<Enemy> enemies = new ArrayList<>();
+    private LinkedList<Enemy> createEnemiesOne() {
+        LinkedList<Enemy> enemies = new LinkedList<>();
         enemies.add(new Zombie("Zombie1"));
         enemies.add(new Vampire("Vampire1"));
         enemies.add(new Zombie("Zombie2"));
         return enemies;
     }
 
-    private ArrayList<Enemy> createEnemiesTwo() {
-        ArrayList<Enemy> enemies = new ArrayList<>();
+    private LinkedList<Enemy> createEnemiesTwo() {
+        LinkedList<Enemy> enemies = new LinkedList<>();
         enemies.add(new Zombie("Zombie1"));
         enemies.add(new Vampire("Vampire1"));
         enemies.add(new Zombie("Zombie2"));
@@ -59,53 +60,53 @@ public class CreateMap {
         return enemies;
     }
 
-    private ArrayList<Enemy> createBossRoomEnemies() {
-        ArrayList<Enemy> enemies = new ArrayList<>();
+    private LinkedList<Enemy> createBossRoomEnemies() {
+        LinkedList<Enemy> enemies = new LinkedList<>();
         enemies.add(new Zombie("Zombie1"));
         enemies.add(new Vampire("Vampire1"));
         enemies.add(new Boss("Boss Man"));
         return enemies;
     }
 
-    private ArrayList<Item> createItemsHelmet() {
-        ArrayList<Item> items = new ArrayList<>();
+    private LinkedList<Item> createItemsHelmet() {
+        LinkedList<Item> items = new LinkedList<>();
         items.add(new Armor("Helmet of Truth", "Protect your noggin", ArmorType.HELMET, 2));
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
         return items;
     }
 
-    private ArrayList<Item> createItemsChestPlate() {
-        ArrayList<Item> items = new ArrayList<>();
+    private LinkedList<Item> createItemsChestPlate() {
+        LinkedList<Item> items = new LinkedList<>();
         items.add(new Armor("Chestplate of Truth", "Makes you look cool while protecting your lungs", ArmorType.CHESTPLATE, 5));
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
         return items;
     }
 
-    private ArrayList<Item> createItemsLeggings() {
-        ArrayList<Item> items = new ArrayList<>();
+    private LinkedList<Item> createItemsLeggings() {
+        LinkedList<Item> items = new LinkedList<>();
         items.add(new Armor("Leggings of Truth", "Does this make my butt look big?", ArmorType.LEGGINGS, 4));
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
         return items;
     }
 
-    private ArrayList<Item> createItemsBoots() {
-        ArrayList<Item> items = new ArrayList<>();
+    private LinkedList<Item> createItemsBoots() {
+        LinkedList<Item> items = new LinkedList<>();
         items.add(new Armor("Boots of Truth", "Lemon peppa steppa's", ArmorType.BOOTS, 2));
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
         return items;
     }
 
-    private ArrayList<Item> createItemPotions() {
-        ArrayList<Item> items = new ArrayList<>();
+    private LinkedList<Item> createItemPotions() {
+        LinkedList<Item> items = new LinkedList<>();
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
         return items;
     }
 
-    private ArrayList<Item> createItemWeapon() {
-        ArrayList<Item> items = new ArrayList<>();
+    private LinkedList<Item> createItemWeapon() {
+        LinkedList<Item> items = new LinkedList<>();
         items.add(new Weapon("Axe of hacking", "Hack through your enemies with ease", 5));
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
         return items;

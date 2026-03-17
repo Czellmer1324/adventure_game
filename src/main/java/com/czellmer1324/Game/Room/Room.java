@@ -4,17 +4,19 @@ import com.czellmer1324.Entities.Enemy.Enemy;
 import com.czellmer1324.Entities.Item.Item;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Objects;
+import java.util.Stack;
 
 public class Room {
     private final String roomName;
     private final Boolean startingRoom;
     private final Boolean endingRoom;
-    private final ArrayList<Item> items;
-    private final ArrayList<Enemy> enemies;
+    private final LinkedList<Item> items;
+    private final LinkedList<Enemy> enemies;
     private Boolean allEnemiesDefeated = false;
 
-    public Room(String roomName, boolean startingRoom, boolean endingRoom, ArrayList<Item> items, ArrayList<Enemy> enemies) {
+    public Room(String roomName, boolean startingRoom, boolean endingRoom, LinkedList<Item> items, LinkedList<Enemy> enemies) {
         this.roomName = roomName; this.startingRoom = startingRoom; this.endingRoom = endingRoom; this.items = items;
         this.enemies = enemies;
     }
@@ -44,7 +46,7 @@ public class Room {
         return allEnemiesDefeated;
     }
 
-    public ArrayList<Item> getItems() {
+    public LinkedList<Item> getItems() {
         return items;
     }
 

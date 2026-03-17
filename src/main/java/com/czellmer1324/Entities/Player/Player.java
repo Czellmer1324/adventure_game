@@ -55,9 +55,9 @@ public class Player {
         return new DamageResult(isDead, health);
     }
 
-    public LinkedList<Item> getInvent(ItemType type) {
-        if (type.equals(ItemType.ARMOR)) return inventory.get(armorInventIndex);
-        else if (type.equals(ItemType.POTION)) return inventory.get(potionInventIndex);
+    public LinkedList<Item> getInvent(int index) {
+        if (index == armorInventIndex) return inventory.get(armorInventIndex);
+        else if (index == potionInventIndex) return inventory.get(potionInventIndex);
         else return inventory.get(weaponInventIndex);
     }
 
