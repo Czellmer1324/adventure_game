@@ -20,7 +20,7 @@ class GameUtils {
         IO.println("2: See how many enemies are left");
         IO.println("3: Engage in combat");
         IO.println("4: View current player stats");
-        IO.println("5: View inventory");
+        IO.println("5: View inventory/Use Items");
         IO.println("6: Move rooms");
         IO.println("7: Quit game");
         IO.print("Your choice: ");

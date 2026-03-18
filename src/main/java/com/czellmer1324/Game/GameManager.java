@@ -50,6 +50,11 @@ public class GameManager {
         } while (!curGame.gameFinished());
 
         //TODO: Add logic for after the game has finished. Method call to print weather they won or lost.
+        if (curRoom.bossRoom() && curRoom.enemiesDefeated()) {
+            IO.println("Congrats you have won the game");
+        } else {
+            IO.println("Womp womp you died");
+        }
     }
 
     private int getOption(int low, int high) {
@@ -85,21 +90,20 @@ public class GameManager {
                 IO.println(String.format("%d: %s", i + 1, curItems.get(i).getName()));
             }
 
-            IO.print("Would you like to pick up an item? (Yes/No): ");
+            IO.print("Would you like to pick up all items? (Yes/No): ");
             String pickUp = sc.nextLine().toLowerCase();
             if (pickUp.equals("yes")) {
-                IO.print("Enter the number of the item you would like to pick up: ");
-                int choice = getOption(1, curItems.size());
-
-                pickUpItem(choice);
+                pickUpItem();
             }
         }
     }
 
-    private void pickUpItem(int selection) {
-        Item item = curRoom.pickupItem(selection);
-        player.pickUpItem(item);
-        IO.println(item.getName() + " has been added to your inventory");
+    private void pickUpItem() {
+        for (int i = 0; i <= curRoom.getItems().size(); i++) {
+            Item item = curRoom.pickupItem(0);
+            player.pickUpItem(item);
+            IO.println(item.getName() + " has been added to your inventory");
+        }
     }
 
     private void enemiesLeft() {
@@ -108,7 +112,7 @@ public class GameManager {
 
     private void combat() {
         if (curRoom.enemiesDefeated()) {
-            IO.println("There are no enemies remaining in this room!");
+            IO.println("\nThere are no enemies remaining in this room!");
         } else {
             Enemy curEnemy = curRoom.getNextEnemy();
             IO.println("\nYou are now entering battle against " + curEnemy.getName());
