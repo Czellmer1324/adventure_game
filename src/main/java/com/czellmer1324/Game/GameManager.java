@@ -112,7 +112,8 @@ public class GameManager {
         } else {
             Enemy curEnemy = curRoom.getNextEnemy();
             IO.println("\nYou are now entering battle against " + curEnemy.getName());
-            IO.println("They have " + curEnemy.getHealth() + " health to start. Good luck in battle!");
+            IO.println("They have " + curEnemy.getHealth() + " health to start. They do " + curEnemy.attack() + " damage.");
+            IO.println("Good luck in battle!");
             viewStats();
             IO.println("\nYou will make the first move!");
 
@@ -225,7 +226,21 @@ public class GameManager {
     }
 
     private void moveRoom() {
-
+        if (!curRoom.enemiesDefeated()) {
+            IO.println("\nSorry you must defeat all enemies before you can move rooms.");
+        } else {
+            ArrayList<Room> adjRoms = curGame.getAdjacentRooms(curRoom);
+            IO.println("\nWhich room would you like to move to?");
+            for (int i = 0; i < adjRoms.size(); i++) {
+                IO.println(String.format("%d : %s", i + 1, adjRoms.get(i).getRoomName()));
+            }
+            IO.print("Your choice: ");
+            int choice = getOption(1, adjRoms.size());
+            curRoom = adjRoms.get(choice);
+            IO.println("You have moved to " +  curRoom.getRoomName() + "!");
+            IO.print("Press enter to continue");
+            sc.nextLine();
+        }
     }
 
     private void quitGame() {

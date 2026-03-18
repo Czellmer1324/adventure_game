@@ -11,12 +11,13 @@ import com.czellmer1324.Entities.Item.Items.Potion.Potion;
 import com.czellmer1324.Entities.Item.Items.Weapon.Weapon;
 import com.czellmer1324.Game.Room.Room;
 import com.czellmer1324.Game.Room.RoomGraph;
+import com.czellmer1324.Records.GameMapCreation;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class CreateMap {
-    public RoomGraph createMap() {
+    public GameMapCreation createMap() {
         RoomGraph map = new RoomGraph();
         Room room1 = new Room("Beginning room", true, false, createItemsHelmet(), createEnemiesOne());
         Room room2 = new Room("Room of pain", false, false, createItemWeapon(), createEnemiesOne());
@@ -39,7 +40,7 @@ public class CreateMap {
         map.addConnection(room4, room5);
         map.addConnection(room5, room6);
 
-        return map;
+        return new GameMapCreation(room1, map);
     }
 
     private LinkedList<Enemy> createEnemiesOne() {
@@ -70,7 +71,7 @@ public class CreateMap {
 
     private LinkedList<Item> createItemsHelmet() {
         LinkedList<Item> items = new LinkedList<>();
-        items.add(new Armor("Helmet of Truth", "Protect your noggin", ArmorType.HELMET, 2));
+        items.add(new Armor("Helmet of Truth", "Protect your noggin", ArmorType.HELMET, 10));
         items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
         return items;
     }
@@ -93,22 +94,23 @@ public class CreateMap {
 
     private LinkedList<Item> createItemsBoots() {
         LinkedList<Item> items = new LinkedList<>();
-        items.add(new Armor("Boots of Truth", "Lemon peppa steppa's", ArmorType.BOOTS, 2));
-        items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
+        items.add(new Armor("Boots of Truth", "Lemon peppa steppa's", ArmorType.BOOTS, 5));
+        items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 20));
         return items;
     }
 
     private LinkedList<Item> createItemPotions() {
         LinkedList<Item> items = new LinkedList<>();
-        items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
-        items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
+        items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 20));
+        items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 20));
         return items;
     }
 
     private LinkedList<Item> createItemWeapon() {
         LinkedList<Item> items = new LinkedList<>();
-        items.add(new Weapon("Axe of hacking", "Hack through your enemies with ease", 5));
-        items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 10));
+        items.add(new Weapon("Axe of hacking", "Hack through your enemies with ease", 15));
+        items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 20));
+        items.add(new Potion("Potion of healing", "Comes in handy when your health is low", 20));
         return items;
     }
 }

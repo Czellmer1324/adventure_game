@@ -4,26 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RoomGraph {
-    private final HashMap<Room, ArrayList<Room>> adjRooms = new HashMap<>();
+    private final HashMap<String, ArrayList<Room>> adjRooms = new HashMap<>();
 
     public void addRoom(Room room) {
-        adjRooms.putIfAbsent(room, new ArrayList<>());
+        adjRooms.putIfAbsent(room.getRoomName(), new ArrayList<>());
     }
 
     public void addConnection(Room room1, Room room2) {
-        adjRooms.get(room1).add(room2);
-        adjRooms.get(room2).add(room1);
+        adjRooms.get(room1.getRoomName()).add(room2);
+        adjRooms.get(room2.getRoomName()).add(room1);
     }
 
     public ArrayList<Room> getAdjacentRooms(Room room) {
-        return adjRooms.get(room);
-    }
-
-    public Room getStartingRoom() {
-        for (Room room : adjRooms.keySet()) {
-            if (room.startingRoom()) return room;
-        }
-
-        return null;
+        return adjRooms.get(room.getRoomName());
     }
 }
